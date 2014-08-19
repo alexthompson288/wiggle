@@ -7,12 +7,30 @@
 //
 
 #import "WGAppDelegate.h"
+#import <Parse/Parse.h>
+#import "WGVideo.h"
 
 @implementation WGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    [WGVideo registerSubclass];
+    
+    [Parse setApplicationId:@"UWHE5ceaJAbNIHywM5M29WSpU5fZVBphUXPc4J6f"
+                  clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
+    
+
+    
+//    [WGVideo seed:^(BOOL succeeded, NSError *error) {
+//        if (succeeded){
+//            NSLog(@"videos saved!");
+//        }
+//        else {
+//            NSLog(@"video saving failed :(");
+//        };
+//    }];
+    
     return YES;
 }
 							

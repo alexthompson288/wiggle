@@ -22,6 +22,17 @@
 		C7B754D519A3887100D532C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B419A3887100D532C1 /* UIKit.framework */; };
 		C7B754DD19A3887100D532C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7B754DB19A3887100D532C1 /* InfoPlist.strings */; };
 		C7B754DF19A3887100D532C1 /* WiggleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754DE19A3887100D532C1 /* WiggleTests.m */; };
+		C7B754E919A3946600D532C1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754E819A3946600D532C1 /* Parse.framework */; };
+		C7B754EB19A3994500D532C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754EA19A3994500D532C1 /* AudioToolbox.framework */; };
+		C7B754ED19A3994B00D532C1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754EC19A3994B00D532C1 /* CFNetwork.framework */; };
+		C7B754EF19A3995300D532C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754EE19A3995300D532C1 /* CoreLocation.framework */; };
+		C7B754F119A3995C00D532C1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F019A3995C00D532C1 /* libz.dylib */; };
+		C7B754F319A3996300D532C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F219A3996300D532C1 /* MobileCoreServices.framework */; };
+		C7B754F519A3996A00D532C1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F419A3996A00D532C1 /* QuartzCore.framework */; };
+		C7B754F719A3997100D532C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F619A3997100D532C1 /* Security.framework */; };
+		C7B754F919A3997A00D532C1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F819A3997A00D532C1 /* StoreKit.framework */; };
+		C7B754FB19A3998500D532C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */; };
+		C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754FE19A39A4F00D532C1 /* WGVideo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +67,18 @@
 		C7B754DA19A3887100D532C1 /* WiggleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WiggleTests-Info.plist"; sourceTree = "<group>"; };
 		C7B754DC19A3887100D532C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7B754DE19A3887100D532C1 /* WiggleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WiggleTests.m; sourceTree = "<group>"; };
+		C7B754E819A3946600D532C1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		C7B754EA19A3994500D532C1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C7B754EC19A3994B00D532C1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C7B754EE19A3995300D532C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C7B754F019A3995C00D532C1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C7B754F219A3996300D532C1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C7B754F419A3996A00D532C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C7B754F619A3997100D532C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C7B754F819A3997A00D532C1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C7B754FD19A39A4F00D532C1 /* WGVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGVideo.h; sourceTree = "<group>"; };
+		C7B754FE19A39A4F00D532C1 /* WGVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGVideo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +86,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B754FB19A3998500D532C1 /* SystemConfiguration.framework in Frameworks */,
+				C7B754F919A3997A00D532C1 /* StoreKit.framework in Frameworks */,
+				C7B754F719A3997100D532C1 /* Security.framework in Frameworks */,
+				C7B754F519A3996A00D532C1 /* QuartzCore.framework in Frameworks */,
+				C7B754F319A3996300D532C1 /* MobileCoreServices.framework in Frameworks */,
+				C7B754F119A3995C00D532C1 /* libz.dylib in Frameworks */,
+				C7B754EF19A3995300D532C1 /* CoreLocation.framework in Frameworks */,
+				C7B754ED19A3994B00D532C1 /* CFNetwork.framework in Frameworks */,
+				C7B754EB19A3994500D532C1 /* AudioToolbox.framework in Frameworks */,
 				C7B754B319A3887100D532C1 /* CoreGraphics.framework in Frameworks */,
 				C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */,
+				C7B754E919A3946600D532C1 /* Parse.framework in Frameworks */,
 				C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +137,16 @@
 		C7B754AF19A3887100D532C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */,
+				C7B754F819A3997A00D532C1 /* StoreKit.framework */,
+				C7B754F619A3997100D532C1 /* Security.framework */,
+				C7B754F419A3996A00D532C1 /* QuartzCore.framework */,
+				C7B754F219A3996300D532C1 /* MobileCoreServices.framework */,
+				C7B754F019A3995C00D532C1 /* libz.dylib */,
+				C7B754EE19A3995300D532C1 /* CoreLocation.framework */,
+				C7B754EC19A3994B00D532C1 /* CFNetwork.framework */,
+				C7B754EA19A3994500D532C1 /* AudioToolbox.framework */,
+				C7B754E819A3946600D532C1 /* Parse.framework */,
 				C7B754B019A3887100D532C1 /* Foundation.framework */,
 				C7B754B219A3887100D532C1 /* CoreGraphics.framework */,
 				C7B754B419A3887100D532C1 /* UIKit.framework */,
@@ -115,6 +158,7 @@
 		C7B754B619A3887100D532C1 /* Wiggle */ = {
 			isa = PBXGroup;
 			children = (
+				C7B754FC19A399FF00D532C1 /* Models */,
 				C7B754BF19A3887100D532C1 /* WGAppDelegate.h */,
 				C7B754C019A3887100D532C1 /* WGAppDelegate.m */,
 				C7B754C219A3887100D532C1 /* Main.storyboard */,
@@ -155,6 +199,15 @@
 				C7B754DB19A3887100D532C1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7B754FC19A399FF00D532C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7B754FD19A39A4F00D532C1 /* WGVideo.h */,
+				C7B754FE19A39A4F00D532C1 /* WGVideo.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +309,7 @@
 			files = (
 				C7B754C119A3887100D532C1 /* WGAppDelegate.m in Sources */,
 				C7B754BD19A3887100D532C1 /* main.m in Sources */,
+				C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */,
 				C7B754C719A3887100D532C1 /* WGMasterViewController.m in Sources */,
 				C7B754CA19A3887100D532C1 /* WGDetailViewController.m in Sources */,
 			);
@@ -382,6 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
@@ -395,6 +453,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
@@ -462,6 +524,7 @@
 				C7B754E419A3887200D532C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7B754E519A3887200D532C1 /* Build configuration list for PBXNativeTarget "WiggleTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +533,7 @@
 				C7B754E719A3887200D532C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
