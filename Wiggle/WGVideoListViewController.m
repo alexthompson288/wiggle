@@ -20,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     [WGVideo loadAll:^(BOOL succeeded, NSError *error) {
         [self.tableView reloadData];
     }];
@@ -64,7 +66,8 @@
 - (void)prepareForReuse
 {
 	[super prepareForReuse];
-	self.video = nil;
+	_video = nil;
+    self.thumbnailImageView.image = nil;
 }
 
 - (void)setVideo:(WGVideo *)video
@@ -72,7 +75,7 @@
     if (_video != video) {
         _video = video;
         self.titleLabel.text = self.video.title;
-
+        [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
     }
 }
 

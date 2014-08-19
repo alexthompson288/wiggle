@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3989E2B3891A49B09B9B4112 /* libPods-Wiggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6D4FF1E63B48BA90C405F8 /* libPods-Wiggle.a */; };
 		C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B019A3887100D532C1 /* Foundation.framework */; };
 		C7B754B319A3887100D532C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B219A3887100D532C1 /* CoreGraphics.framework */; };
 		C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B419A3887100D532C1 /* UIKit.framework */; };
@@ -36,6 +35,8 @@
 		C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754FE19A39A4F00D532C1 /* WGVideo.m */; };
 		C7E0D51319A3BA7700CB32C4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51219A3BA7700CB32C4 /* Social.framework */; };
 		C7E0D51519A3BA7C00CB32C4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */; };
+		C7E0D51B19A3BEF900CB32C4 /* libPods-Wiggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */; };
+		C7E0D51D19A3C18A00CB32C4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,10 @@
 		C7E0D51019A3BA6000CB32C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		C7E0D51219A3BA7700CB32C4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C7E0D51619A3BBF700CB32C4 /* libPods-Wiggle-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Wiggle-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-Wiggle-AFNetworking.a"; sourceTree = "<group>"; };
+		C7E0D51719A3BBF700CB32C4 /* libPods-Wiggle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Wiggle.a"; path = "Pods/build/Debug-iphoneos/libPods-Wiggle.a"; sourceTree = "<group>"; };
+		C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Wiggle.a"; path = "Pods/build/Debug-iphoneos/libPods-Wiggle.a"; sourceTree = "<group>"; };
+		C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiggle.xcconfig"; path = "Pods/Pods-Wiggle.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0D51D19A3C18A00CB32C4 /* MediaPlayer.framework in Frameworks */,
+				C7E0D51B19A3BEF900CB32C4 /* libPods-Wiggle.a in Frameworks */,
 				C7E0D51519A3BA7C00CB32C4 /* Accounts.framework in Frameworks */,
 				C7E0D51319A3BA7700CB32C4 /* Social.framework in Frameworks */,
 				C7B754FB19A3998500D532C1 /* SystemConfiguration.framework in Frameworks */,
@@ -109,7 +116,6 @@
 				C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */,
 				C7B754E919A3946600D532C1 /* Parse.framework in Frameworks */,
 				C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */,
-				3989E2B3891A49B09B9B4112 /* libPods-Wiggle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +155,10 @@
 		C7B754AF19A3887100D532C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */,
+				C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */,
+				C7E0D51619A3BBF700CB32C4 /* libPods-Wiggle-AFNetworking.a */,
+				C7E0D51719A3BBF700CB32C4 /* libPods-Wiggle.a */,
 				C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */,
 				C7E0D51219A3BA7700CB32C4 /* Social.framework */,
 				C7E0D51019A3BA6000CB32C4 /* AddressBook.framework */,
@@ -495,7 +505,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 					"-framework",
 					CoreGraphics,
 					"-framework",
@@ -523,7 +539,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 					"-framework",
 					CoreGraphics,
 					"-framework",

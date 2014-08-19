@@ -21,7 +21,7 @@
                   clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
     
 
-    
+//    
 //    [WGVideo seed:^(BOOL succeeded, NSError *error) {
 //        if (succeeded){
 //            NSLog(@"videos saved!");

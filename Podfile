@@ -3,6 +3,7 @@
 
 target "Wiggle" do
   pod 'AFNetworking', '~> 2.3'
+  pod 'Facebook-iOS-SDK', '~> 3.17'
 end
 
 target "WiggleTests" do
