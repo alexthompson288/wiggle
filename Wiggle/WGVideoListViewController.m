@@ -21,10 +21,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-
-    [WGVideo loadAll:^(BOOL succeeded, NSError *error) {
-        [self.tableView reloadData];
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideosLoadedNotification object:nil];
 }
 
 #pragma mark - Table View

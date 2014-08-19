@@ -14,4 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <AFNetworking/UIImageView+AFNetworking.h>
+    #import "NSString+WGAdditions.h"
+    #import "WGConstants.h"
 #endif

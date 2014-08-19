@@ -12,30 +12,18 @@
 #import "WGModelHelpers.h"
 
 
-
 @implementation WGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [WGVideo registerSubclass];
-    
-    [Parse setApplicationId:@"UWHE5ceaJAbNIHywM5M29WSpU5fZVBphUXPc4J6f"
-                  clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
-    
-
-    
-//    [WGModelHelpers seedVideos:^(BOOL succeeded, NSError *error) {
-//        if (succeeded){
-//            NSLog(@"videos saved!");
-//        }
-//        else {
-//            NSLog(@"video saving failed :(");
-//        };
-//    }];
+    [WGVideo bootstrap];
+    [Parse setApplicationId:@"UWHE5ceaJAbNIHywM5M29WSpU5fZVBphUXPc4J6f" clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
+    [WGVideo fetchFromServer:nil];
     
     return YES;
 }
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

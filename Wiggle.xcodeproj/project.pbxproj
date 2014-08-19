@@ -38,6 +38,8 @@
 		C7E0D51B19A3BEF900CB32C4 /* libPods-Wiggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */; };
 		C7E0D51D19A3C18A00CB32C4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */; };
 		C7E0D52219A3D7E500CB32C4 /* WGModelHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E0D52119A3D7E500CB32C4 /* WGModelHelpers.m */; };
+		C7E0D52519A3E63700CB32C4 /* WGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E0D52419A3E63700CB32C4 /* WGConstants.m */; };
+		C7E0D52919A3FB9F00CB32C4 /* NSString+WGAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E0D52819A3FB9F00CB32C4 /* NSString+WGAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,10 @@
 		C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C7E0D52019A3D7E500CB32C4 /* WGModelHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGModelHelpers.h; sourceTree = "<group>"; };
 		C7E0D52119A3D7E500CB32C4 /* WGModelHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGModelHelpers.m; sourceTree = "<group>"; };
+		C7E0D52319A3E63700CB32C4 /* WGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGConstants.h; sourceTree = "<group>"; };
+		C7E0D52419A3E63700CB32C4 /* WGConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGConstants.m; sourceTree = "<group>"; };
+		C7E0D52719A3FB9F00CB32C4 /* NSString+WGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WGAdditions.h"; sourceTree = "<group>"; };
+		C7E0D52819A3FB9F00CB32C4 /* NSString+WGAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WGAdditions.m"; sourceTree = "<group>"; };
 		FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiggle.xcconfig"; path = "Pods/Pods-Wiggle.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +203,8 @@
 				C7B754C919A3887100D532C1 /* WGVideoDetailViewController.m */,
 				C7B754CB19A3887100D532C1 /* Images.xcassets */,
 				C7B754B719A3887100D532C1 /* Supporting Files */,
+				C7E0D52719A3FB9F00CB32C4 /* NSString+WGAdditions.h */,
+				C7E0D52819A3FB9F00CB32C4 /* NSString+WGAdditions.m */,
 			);
 			path = Wiggle;
 			sourceTree = "<group>";
@@ -208,6 +216,8 @@
 				C7B754B919A3887100D532C1 /* InfoPlist.strings */,
 				C7B754BC19A3887100D532C1 /* main.m */,
 				C7B754BE19A3887100D532C1 /* Wiggle-Prefix.pch */,
+				C7E0D52319A3E63700CB32C4 /* WGConstants.h */,
+				C7E0D52419A3E63700CB32C4 /* WGConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -373,6 +383,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0D52519A3E63700CB32C4 /* WGConstants.m in Sources */,
+				C7E0D52919A3FB9F00CB32C4 /* NSString+WGAdditions.m in Sources */,
 				C7B754C119A3887100D532C1 /* WGAppDelegate.m in Sources */,
 				C7B754BD19A3887100D532C1 /* main.m in Sources */,
 				C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */,

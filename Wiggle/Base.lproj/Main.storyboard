@@ -76,8 +76,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" minimumFontSize="10" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="378" width="280" height="113"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" lineBreakMode="tailTruncation" numberOfLines="10" minimumFontSize="10" id="Lei-5M-9Gs">
+                                <rect key="frame" x="20" y="313" width="280" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
@@ -85,27 +85,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="p86-IU-ZxI">
-                                <rect key="frame" x="20" y="79" width="280" height="280"/>
+                                <rect key="frame" x="20" y="79" width="280" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zpl-V1-a3K">
-                                <rect key="frame" x="20" y="499" width="280" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.69411764705882351" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Play Video">
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pcK-bb-QkM">
+                                <rect key="frame" x="20" y="79" width="280" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playVideo:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="UL4-Tc-GyS"/>
+                                    <action selector="playVideo:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="g80-Mh-4IV"/>
                                 </connections>
                             </button>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uja-Tr-KLC">
+                                <rect key="frame" x="20" y="512" width="223" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="FDH-tv-A2f">
+                                <rect key="frame" x="20" y="546" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            </progressView>
+                            <switch appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Qfw-5E-Fm3">
+                                <rect key="frame" x="251" y="507" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="toggleAvailableOffline:" destination="Ah7-4n-0Wa" eventType="valueChanged" id="qGz-7d-itc"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
+                        <outlet property="availableOfflineSwitch" destination="Qfw-5E-Fm3" id="GZv-3c-hC3"/>
+                        <outlet property="downloadProgressView" destination="FDH-tv-A2f" id="1jF-HY-svg"/>
+                        <outlet property="downloadStatusLabel" destination="uja-Tr-KLC" id="LV5-lF-vGS"/>
                         <outlet property="thumbnailImageView" destination="p86-IU-ZxI" id="XIU-Am-TnJ"/>
                         <outlet property="videoOverviewLabel" destination="Lei-5M-9Gs" id="V2D-gI-WCq"/>
                     </connections>
