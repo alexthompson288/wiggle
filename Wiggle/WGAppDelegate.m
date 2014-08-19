@@ -9,6 +9,9 @@
 #import "WGAppDelegate.h"
 #import <Parse/Parse.h>
 #import "WGVideo.h"
+#import "WGModelHelpers.h"
+
+
 
 @implementation WGAppDelegate
 
@@ -21,8 +24,8 @@
                   clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
     
 
-//    
-//    [WGVideo seed:^(BOOL succeeded, NSError *error) {
+    
+//    [WGModelHelpers seedVideos:^(BOOL succeeded, NSError *error) {
 //        if (succeeded){
 //            NSLog(@"videos saved!");
 //        }

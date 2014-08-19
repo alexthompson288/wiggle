@@ -37,6 +37,7 @@
 		C7E0D51519A3BA7C00CB32C4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */; };
 		C7E0D51B19A3BEF900CB32C4 /* libPods-Wiggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */; };
 		C7E0D51D19A3C18A00CB32C4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */; };
+		C7E0D52219A3D7E500CB32C4 /* WGModelHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E0D52119A3D7E500CB32C4 /* WGModelHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		C7E0D51719A3BBF700CB32C4 /* libPods-Wiggle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Wiggle.a"; path = "Pods/build/Debug-iphoneos/libPods-Wiggle.a"; sourceTree = "<group>"; };
 		C7E0D51A19A3BEF900CB32C4 /* libPods-Wiggle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Wiggle.a"; path = "Pods/build/Debug-iphoneos/libPods-Wiggle.a"; sourceTree = "<group>"; };
 		C7E0D51C19A3C18A00CB32C4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C7E0D52019A3D7E500CB32C4 /* WGModelHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGModelHelpers.h; sourceTree = "<group>"; };
+		C7E0D52119A3D7E500CB32C4 /* WGModelHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGModelHelpers.m; sourceTree = "<group>"; };
 		FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiggle.xcconfig"; path = "Pods/Pods-Wiggle.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +235,8 @@
 			children = (
 				C7B754FD19A39A4F00D532C1 /* WGVideo.h */,
 				C7B754FE19A39A4F00D532C1 /* WGVideo.m */,
+				C7E0D52019A3D7E500CB32C4 /* WGModelHelpers.h */,
+				C7E0D52119A3D7E500CB32C4 /* WGModelHelpers.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */,
 				C7B754C719A3887100D532C1 /* WGVideoListViewController.m in Sources */,
 				C7B754CA19A3887100D532C1 /* WGVideoDetailViewController.m in Sources */,
+				C7E0D52219A3D7E500CB32C4 /* WGModelHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

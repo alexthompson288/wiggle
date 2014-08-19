@@ -17,7 +17,8 @@
 @property (strong) NSString *videoURL;
 
 + (NSString *)parseClassName;
-+ (void)seed:(PFBooleanResultBlock)block;
 + (void)loadAll:(PFBooleanResultBlock)block;
 + (NSArray *)allVideos;
++ (instancetype)videoWithAttributes:(NSDictionary *) attributes;
+
 @end
