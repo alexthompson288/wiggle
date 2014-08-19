@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3989E2B3891A49B09B9B4112 /* libPods-Wiggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6D4FF1E63B48BA90C405F8 /* libPods-Wiggle.a */; };
 		C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B019A3887100D532C1 /* Foundation.framework */; };
 		C7B754B319A3887100D532C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B219A3887100D532C1 /* CoreGraphics.framework */; };
 		C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B419A3887100D532C1 /* UIKit.framework */; };
@@ -14,8 +15,8 @@
 		C7B754BD19A3887100D532C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754BC19A3887100D532C1 /* main.m */; };
 		C7B754C119A3887100D532C1 /* WGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754C019A3887100D532C1 /* WGAppDelegate.m */; };
 		C7B754C419A3887100D532C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B754C219A3887100D532C1 /* Main.storyboard */; };
-		C7B754C719A3887100D532C1 /* WGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754C619A3887100D532C1 /* WGMasterViewController.m */; };
-		C7B754CA19A3887100D532C1 /* WGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754C919A3887100D532C1 /* WGDetailViewController.m */; };
+		C7B754C719A3887100D532C1 /* WGVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754C619A3887100D532C1 /* WGVideoListViewController.m */; };
+		C7B754CA19A3887100D532C1 /* WGVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754C919A3887100D532C1 /* WGVideoDetailViewController.m */; };
 		C7B754CC19A3887100D532C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B754CB19A3887100D532C1 /* Images.xcassets */; };
 		C7B754D319A3887100D532C1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754D219A3887100D532C1 /* XCTest.framework */; };
 		C7B754D419A3887100D532C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B019A3887100D532C1 /* Foundation.framework */; };
@@ -33,6 +34,8 @@
 		C7B754F919A3997A00D532C1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754F819A3997A00D532C1 /* StoreKit.framework */; };
 		C7B754FB19A3998500D532C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */; };
 		C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B754FE19A39A4F00D532C1 /* WGVideo.m */; };
+		C7E0D51319A3BA7700CB32C4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51219A3BA7700CB32C4 /* Social.framework */; };
+		C7E0D51519A3BA7C00CB32C4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6D4FF1E63B48BA90C405F8 /* libPods-Wiggle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wiggle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B754AD19A3887100D532C1 /* Wiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B754B019A3887100D532C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C7B754B219A3887100D532C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,10 +61,10 @@
 		C7B754BF19A3887100D532C1 /* WGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGAppDelegate.h; sourceTree = "<group>"; };
 		C7B754C019A3887100D532C1 /* WGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGAppDelegate.m; sourceTree = "<group>"; };
 		C7B754C319A3887100D532C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C7B754C519A3887100D532C1 /* WGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGMasterViewController.h; sourceTree = "<group>"; };
-		C7B754C619A3887100D532C1 /* WGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGMasterViewController.m; sourceTree = "<group>"; };
-		C7B754C819A3887100D532C1 /* WGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGDetailViewController.h; sourceTree = "<group>"; };
-		C7B754C919A3887100D532C1 /* WGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGDetailViewController.m; sourceTree = "<group>"; };
+		C7B754C519A3887100D532C1 /* WGVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGVideoListViewController.h; sourceTree = "<group>"; };
+		C7B754C619A3887100D532C1 /* WGVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGVideoListViewController.m; sourceTree = "<group>"; };
+		C7B754C819A3887100D532C1 /* WGVideoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGVideoDetailViewController.h; sourceTree = "<group>"; };
+		C7B754C919A3887100D532C1 /* WGVideoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGVideoDetailViewController.m; sourceTree = "<group>"; };
 		C7B754CB19A3887100D532C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7B754D119A3887100D532C1 /* WiggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B754D219A3887100D532C1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -79,6 +83,10 @@
 		C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C7B754FD19A39A4F00D532C1 /* WGVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGVideo.h; sourceTree = "<group>"; };
 		C7B754FE19A39A4F00D532C1 /* WGVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGVideo.m; sourceTree = "<group>"; };
+		C7E0D51019A3BA6000CB32C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C7E0D51219A3BA7700CB32C4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiggle.xcconfig"; path = "Pods/Pods-Wiggle.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0D51519A3BA7C00CB32C4 /* Accounts.framework in Frameworks */,
+				C7E0D51319A3BA7700CB32C4 /* Social.framework in Frameworks */,
 				C7B754FB19A3998500D532C1 /* SystemConfiguration.framework in Frameworks */,
 				C7B754F919A3997A00D532C1 /* StoreKit.framework in Frameworks */,
 				C7B754F719A3997100D532C1 /* Security.framework in Frameworks */,
@@ -99,6 +109,7 @@
 				C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */,
 				C7B754E919A3946600D532C1 /* Parse.framework in Frameworks */,
 				C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */,
+				3989E2B3891A49B09B9B4112 /* libPods-Wiggle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +133,7 @@
 				C7B754D819A3887100D532C1 /* WiggleTests */,
 				C7B754AF19A3887100D532C1 /* Frameworks */,
 				C7B754AE19A3887100D532C1 /* Products */,
+				FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +149,9 @@
 		C7B754AF19A3887100D532C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7E0D51419A3BA7C00CB32C4 /* Accounts.framework */,
+				C7E0D51219A3BA7700CB32C4 /* Social.framework */,
+				C7E0D51019A3BA6000CB32C4 /* AddressBook.framework */,
 				C7B754FA19A3998500D532C1 /* SystemConfiguration.framework */,
 				C7B754F819A3997A00D532C1 /* StoreKit.framework */,
 				C7B754F619A3997100D532C1 /* Security.framework */,
@@ -151,6 +166,7 @@
 				C7B754B219A3887100D532C1 /* CoreGraphics.framework */,
 				C7B754B419A3887100D532C1 /* UIKit.framework */,
 				C7B754D219A3887100D532C1 /* XCTest.framework */,
+				1C6D4FF1E63B48BA90C405F8 /* libPods-Wiggle.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,10 +178,10 @@
 				C7B754BF19A3887100D532C1 /* WGAppDelegate.h */,
 				C7B754C019A3887100D532C1 /* WGAppDelegate.m */,
 				C7B754C219A3887100D532C1 /* Main.storyboard */,
-				C7B754C519A3887100D532C1 /* WGMasterViewController.h */,
-				C7B754C619A3887100D532C1 /* WGMasterViewController.m */,
-				C7B754C819A3887100D532C1 /* WGDetailViewController.h */,
-				C7B754C919A3887100D532C1 /* WGDetailViewController.m */,
+				C7B754C519A3887100D532C1 /* WGVideoListViewController.h */,
+				C7B754C619A3887100D532C1 /* WGVideoListViewController.m */,
+				C7B754C819A3887100D532C1 /* WGVideoDetailViewController.h */,
+				C7B754C919A3887100D532C1 /* WGVideoDetailViewController.m */,
 				C7B754CB19A3887100D532C1 /* Images.xcassets */,
 				C7B754B719A3887100D532C1 /* Supporting Files */,
 			);
@@ -217,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7B754E219A3887200D532C1 /* Build configuration list for PBXNativeTarget "Wiggle" */;
 			buildPhases = (
+				20412B75B56B4A38AF1B1265 /* Check Pods Manifest.lock */,
 				C7B754A919A3887100D532C1 /* Sources */,
 				C7B754AA19A3887100D532C1 /* Frameworks */,
 				C7B754AB19A3887100D532C1 /* Resources */,
+				F12481D7AAA241C1BF9B8DEF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +320,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20412B75B56B4A38AF1B1265 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F12481D7AAA241C1BF9B8DEF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Wiggle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C7B754A919A3887100D532C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,8 +361,8 @@
 				C7B754C119A3887100D532C1 /* WGAppDelegate.m in Sources */,
 				C7B754BD19A3887100D532C1 /* main.m in Sources */,
 				C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */,
-				C7B754C719A3887100D532C1 /* WGMasterViewController.m in Sources */,
-				C7B754CA19A3887100D532C1 /* WGDetailViewController.m in Sources */,
+				C7B754C719A3887100D532C1 /* WGVideoListViewController.m in Sources */,
+				C7B754CA19A3887100D532C1 /* WGVideoDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +484,7 @@
 		};
 		C7B754E319A3887200D532C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -443,6 +495,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +512,7 @@
 		};
 		C7B754E419A3887200D532C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7C3A78286747EE8F488038 /* Pods-Wiggle.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -460,6 +523,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wiggle/Wiggle-Prefix.pch";
 				INFOPLIST_FILE = "Wiggle/Wiggle-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

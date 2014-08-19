@@ -19,9 +19,8 @@ static NSArray *allVideos;
     return @"Video";
 }
 
-
-
-+ (instancetype)videoWithAttributes:(NSDictionary *) attributes {
++ (instancetype)videoWithAttributes:(NSDictionary *) attributes
+{
     WGVideo *video = [WGVideo object];
 
     video.title        = [attributes objectForKey:@"title"];
@@ -33,7 +32,8 @@ static NSArray *allVideos;
     return video;
 }
 
-+ (void)seed:(PFBooleanResultBlock)block {
++ (void)seed:(PFBooleanResultBlock)block
+{
     NSArray *data = @[@{
                           @"title":@"Pip and Jazz the juggler",
                           @"overview":@"The circus is in town, so Pip and Pop head off to watch Jazz the juggler perform his tricks.  Pop joins in the act and they end up with another letter!",
@@ -252,7 +252,8 @@ static NSArray *allVideos;
     [WGVideo saveAllInBackground:videos block:block];
 }
 
-+ (void)loadAll:(PFBooleanResultBlock)block {
++ (void)loadAll:(PFBooleanResultBlock)block
+{
 
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -266,7 +267,8 @@ static NSArray *allVideos;
     }];
 }
 
-+ (NSArray *)allVideos {
++ (NSArray *)allVideos
+{
     if (!allVideos) {
         allVideos = [NSArray new];
     }
