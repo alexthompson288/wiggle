@@ -183,7 +183,7 @@ static NSMutableArray *allVideos;
 
 + (void)fetchFromServer:(PFBooleanResultBlock)block
 {
-    return;
+//    return;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
