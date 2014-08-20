@@ -26,7 +26,9 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDidProgress:) name:WGVideoDownloadDidProgressNotification object:self.video];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadDidFinish:) name:WGVideoDownloadDidFinishNotification object:self.video];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:WGVideoDownloadDidFinishNotification object:self.video];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:WGVideoDownloadDidFailNotification object:self.video];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:WGVideoDownloadDidCancelNotification object:self.video];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -34,11 +36,6 @@
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:WGVideoDownloadDidProgressNotification object:self.video];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:WGVideoDownloadDidFinishNotification object:self.video];
-}
-
-- (void)downloadDidFinish:(NSNotification *)notification
-{
-    [self configureView];
 }
 
 - (void)downloadDidProgress:(NSNotification *)notification
@@ -93,8 +90,8 @@
 }
 
 - (IBAction)toggleAvailableOffline:(id)sender {
-    if (self.video.offlineURL){
-//        [self.video deleteDownload];
+    if (self.video.offlineURL || self.video.isDownloading){
+        [self.video deleteDownload];
     }
     else {
         [self.video download];

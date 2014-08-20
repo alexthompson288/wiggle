@@ -14,11 +14,19 @@ NSString * const WGVideosLoadedNotification                 = @"WGVideosLoadedNo
 NSString * const WGVideoDownloadDidProgressNotification     = @"WGVideoDownloadDidProgressNotification";
 NSString * const WGVideoDownloadDidFinishNotification       = @"WGVideoDownloadDidFinishNotification";
 NSString * const WGVideoDownloadDidFailNotification         = @"WGVideoDownloadDidFailNotification";
+NSString * const WGVideoDownloadDidCancelNotification       = @"WGVideoDownloadDidCancelNotification";
 
 #define kVideoDataPath [kDocumentsDirectory stringByAppendingPathComponent:@"videos.plist"]
 
+@interface WGVideo()
+
+@property (nonatomic, strong) AFHTTPRequestOperation *downloadOperation;
+
+@end
+
 @implementation WGVideo
-@synthesize isDownloading, offlineURL;
+
+@synthesize isDownloading, offlineURL, downloadOperation;
 @dynamic title, overview, orderNumber, thumbnailURL, videoURL;
 
 static NSMutableArray *allVideos;
@@ -41,7 +49,7 @@ static NSMutableArray *allVideos;
     }
     
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = @"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"];
+    video.videoURL     = [attributes objectForKey:@"video_url"];//[attributes objectForKey:@"video_url"];//@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"];
 
     return video;
 }
@@ -64,45 +72,72 @@ static NSMutableArray *allVideos;
     return attribs;
 }
 
+- (void)deleteDownload
+{
+    
+    if (self.isDownloading && self.downloadOperation) {
+        NSLog(@"Cancelling in progress download");
+        [self.downloadOperation cancel];
+        self.isDownloading     = NO;
+        self.downloadOperation = nil;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidCancelNotification object:self];
+    }
+    else if (self.offlineURL) {
+        NSLog(@"Deleting download file");
+        
+        [[NSFileManager defaultManager] removeItemAtURL:[NSURL URLWithString:self.offlineURL] error:nil];
+        self.offlineURL = nil;
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidCancelNotification object:self];
+    }
+}
+
 - (void)download
 {
     NSLog(@"Downloading %@", self.videoURL);
     
-    NSURL *URL              = [NSURL URLWithString:self.videoURL];
-    NSURLRequest *request   = [NSURLRequest requestWithURL:URL];
+    NSURL *URL               = [NSURL URLWithString:self.videoURL];
+    NSURLRequest *request    = [NSURLRequest requestWithURL:URL];
+    self.downloadOperation   = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    __weak WGVideo* weakSelf = self;
+
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+    [self.downloadOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidProgressNotification
-                                                            object:self
+                                                            object:weakSelf
                                                           userInfo:@{
                                                                          @"totalBytesRead":             [NSNumber numberWithLongLong:totalBytesRead],
                                                                          @"totalBytesExpectedToRead":   [NSNumber numberWithLongLong:totalBytesExpectedToRead]
                                                                      }];
     }];
     
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.isDownloading = NO;
+
+    
+    [self.downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        weakSelf.isDownloading      = NO;
+        weakSelf.downloadOperation  = nil;
+        
         NSData *data            = [[NSData alloc] initWithData:responseObject];
-        NSURL *destinationURL   = documentURLFromFilename([NSString stringWithFormat:@"%@.mp4", self.objectId]);
-        self.offlineURL         = [destinationURL absoluteString];
+        NSURL *destinationURL   = documentURLFromFilename([NSString stringWithFormat:@"%@.mp4", weakSelf.objectId]);
+        weakSelf.offlineURL     = [destinationURL absoluteString];
         
         [data writeToURL:destinationURL atomically:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidFinishNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidFinishNotification object:weakSelf];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        self.isDownloading = NO;
+        weakSelf.isDownloading      = NO;
+        weakSelf.downloadOperation  = nil;
         
         NSLog(@"file downloading error : %@", [error localizedDescription]);
         [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidFailNotification
-                                                            object:self
+                                                            object:weakSelf
                                                           userInfo:@{
                                                                      @"error": [error localizedDescription]
                                                                      }];
     }];
     
     self.isDownloading = YES;
-    [operation start];
+    [downloadOperation start];
 
 }
 
@@ -140,28 +175,27 @@ static NSMutableArray *allVideos;
         }
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDownloadDidFinish:) name:WGVideoDownloadDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidCancelNotification object:nil];
 }
 
-+ (void)videoDownloadDidFinish:(NSNotification *)notification
-{
-    [self saveToDisk];
-}
+
 
 + (void)fetchFromServer:(PFBooleanResultBlock)block
 {
+    return;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-//            allVideos = [NSMutableArray arrayWithArray:objects];
+            allVideos = [NSMutableArray arrayWithArray:objects];
             
             NSLog(@"%i videos retrieved from server", allVideos.count);
             
             
-//            [self saveToDisk];
-//            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:WGVideosLoadedNotification object:nil];
+            [self saveToDisk];
+//
+            [[NSNotificationCenter defaultCenter] postNotificationName:WGVideosLoadedNotification object:nil];
             
             if (block) block(YES, nil);
         }

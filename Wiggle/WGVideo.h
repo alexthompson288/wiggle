@@ -22,6 +22,7 @@
 
 - (NSDictionary *)getAttributes;
 - (void)download;
+- (void)deleteDownload;
 
 + (NSString *)parseClassName;
 + (instancetype)videoWithAttributes:(NSDictionary *) attributes;
@@ -35,3 +36,5 @@
 extern NSString * const WGVideosLoadedNotification;
 extern NSString * const WGVideoDownloadDidProgressNotification;
 extern NSString * const WGVideoDownloadDidFinishNotification;
+extern NSString * const WGVideoDownloadDidFailNotification;
+extern NSString * const WGVideoDownloadDidCancelNotification;
