@@ -108,6 +108,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QqO-mc-vnG" kind="push" identifier="showTranscript" id="8lB-Wn-hjh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -129,6 +132,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckP-u1-ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896" y="72"/>
+        </scene>
+        <!--Transcript View Controller - Transcript-->
+        <scene sceneID="ZpF-FJ-xsW">
+            <objects>
+                <viewController id="QqO-mc-vnG" customClass="WGTranscriptViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="krQ-nw-VXo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fCy-bS-4PK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcg-rd-DJ3">
+                                        <rect key="frame" x="10" y="10" width="300" height="548"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Transcript" id="U2o-yd-pq2"/>
+                    <connections>
+                        <outlet property="scrollView" destination="fCy-bS-4PK" id="Tfh-26-cQx"/>
+                        <outlet property="transcriptLabel" destination="gcg-rd-DJ3" id="v66-8J-dYI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jjb-q4-RZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1318" y="72"/>
         </scene>
         <!--Video List View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">

@@ -16,6 +16,7 @@
 // Parse data
 @property (strong) NSString *title;
 @property (strong) NSString *overview;
+@property (strong) NSString *transcript;
 @property (strong) NSNumber *orderNumber;
 @property (strong) NSString *thumbnailURL;
 @property (strong) NSString *videoURL;

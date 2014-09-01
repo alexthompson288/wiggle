@@ -8,6 +8,7 @@
 
 #import "WGVideoViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "WGTranscriptViewController.h"
 
 const NSInteger kWGVideoInfoRow = 0;
 
@@ -122,6 +123,16 @@ const NSInteger kWGVideoInfoRow = 0;
     
     NSLog(@"playing %@", contentURL);
     [self presentMoviePlayerViewControllerAnimated:vc];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showTranscript"]) {
+        WGTranscriptViewController *detailVC = (WGTranscriptViewController *)[segue destinationViewController];
+        
+        detailVC.video = self.video;
+    }
 }
 
 

@@ -27,7 +27,7 @@ NSString * const WGVideoDownloadDidCancelNotification       = @"WGVideoDownloadD
 @implementation WGVideo
 
 @synthesize isDownloading, offlineURL, downloadOperation;
-@dynamic title, overview, orderNumber, thumbnailURL, videoURL;
+@dynamic title, overview, orderNumber, thumbnailURL, videoURL, transcript;
 
 static NSMutableArray *allVideos;
 
@@ -42,10 +42,11 @@ static NSMutableArray *allVideos;
     video.objectId     = [attributes objectForKey:@"id"];
     video.title        = [attributes objectForKey:@"title"];
     video.overview     = [attributes objectForKey:@"overview"];
+    video.transcript   = [attributes objectForKey:@"transcript"];
     video.orderNumber  = [attributes objectForKey:@"order_number"];
     video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = @"http://localhost:8000/video.mp4";//@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    video.videoURL     = [attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
     return video;
 }
 
@@ -60,6 +61,7 @@ static NSMutableArray *allVideos;
              @"title":          self.title,
              @"overview":       self.overview,
              @"order_number":   self.orderNumber,
+             @"transcript":     self.transcript,
              @"thumbnail_url":  self.thumbnailURL,
              @"video_url":      self.videoURL
              }];
