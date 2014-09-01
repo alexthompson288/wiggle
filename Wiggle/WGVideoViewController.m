@@ -1,26 +1,48 @@
 //
-//  WGDetailViewController.m
+//  WGVideoViewController.m
 //  Wiggle
 //
-//  Created by Barnaby Malet on 19/08/2014.
+//  Created by Barnaby Malet on 01/09/2014.
 //
 //
 
-#import "WGVideoDetailViewController.h"
+#import "WGVideoViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface WGVideoDetailViewController ()
+const NSInteger kWGVideoInfoRow = 0;
+
+@interface WGVideoViewController ()
 
 @property (weak, nonatomic) IBOutlet UISwitch *availableOfflineSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *downloadStatusLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
 
 - (void)configureView;
+
 @end
 
-@implementation WGVideoDetailViewController
+@implementation WGVideoViewController
 
-#pragma mark - Managing the detail item
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.thumbnailImageView makeInsetShadowWithRadius:1 Alpha:0.1];
+    [self configureView];
+}
+
+-(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*) indexPath
+{
+    if (indexPath.row == kWGVideoInfoRow){
+        return self.videoOverviewLabel.frame.origin.y + self.videoOverviewLabel.frame.size.height + 15;
+    }
+    else {
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -45,7 +67,7 @@
     
     float percDone = [bytesDone floatValue] / [bytesTotal floatValue];
     self.downloadProgressView.progress = percDone;
-
+    
     self.downloadStatusLabel.text = [NSString stringWithFormat:@"%.0f%% of %@", percDone * 100, [NSString stringWithFileSize:bytesTotal]];
 }
 
@@ -61,6 +83,7 @@
 {
     if (self.video) {
         self.videoOverviewLabel.text = self.video.overview;
+        [self.videoOverviewLabel sizeToFit];
         [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
         self.navigationItem.title    = self.video.title;
         self.downloadProgressView.progress = 0.0f;
@@ -82,13 +105,6 @@
     }
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [self configureView];
-}
-
 - (IBAction)toggleAvailableOffline:(id)sender {
     if (self.video.offlineURL || self.video.isDownloading){
         [self.video deleteDownload];
@@ -102,15 +118,11 @@
 - (IBAction)playVideo:(id)sender {
     NSURL *contentURL =  [NSURL URLWithString:self.video.offlineURL ? self.video.offlineURL : self.video.videoURL];
     
-    
-    
     MPMoviePlayerViewController *vc = [[MPMoviePlayerViewController alloc]  initWithContentURL:contentURL];
-    
-
-
     
     NSLog(@"playing %@", contentURL);
     [self presentMoviePlayerViewControllerAnimated:vc];
 }
+
 
 @end

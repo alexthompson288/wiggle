@@ -43,19 +43,18 @@ static NSMutableArray *allVideos;
     video.title        = [attributes objectForKey:@"title"];
     video.overview     = [attributes objectForKey:@"overview"];
     video.orderNumber  = [attributes objectForKey:@"order_number"];
-    
-    if ([attributes objectForKey:@"offline_url"]){
-        video.offlineURL   = [attributes objectForKey:@"offline_url"];
-    }
-    
+    video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = [attributes objectForKey:@"video_url"];//[attributes objectForKey:@"video_url"];//@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"];
-
+    video.videoURL     = @"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
     return video;
 }
 
 - (NSDictionary *)getAttributes
 {
+    NSLog(@"---- %@", self.objectId);
+    
+    
+    
     NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithDictionary:@{
              @"id":             self.objectId,
              @"title":          self.title,
@@ -65,9 +64,12 @@ static NSMutableArray *allVideos;
              @"video_url":      self.videoURL
              }];
     
-    if (self.offlineURL) {
-        attribs[@"offline_url"] = self.offlineURL;
+    for (id key in attribs) {
+        if (![attribs objectForKey:key]){
+            [attribs removeObjectForKey:key];
+        }
     }
+
     
     return attribs;
 }

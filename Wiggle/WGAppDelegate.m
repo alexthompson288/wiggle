@@ -9,7 +9,6 @@
 #import "WGAppDelegate.h"
 #import <Parse/Parse.h>
 #import "WGVideo.h"
-#import "WGModelHelpers.h"
 
 
 @implementation WGAppDelegate
@@ -19,6 +18,9 @@
     [WGVideo bootstrap];
     [Parse setApplicationId:@"UWHE5ceaJAbNIHywM5M29WSpU5fZVBphUXPc4J6f" clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
     [WGVideo fetchFromServer:nil];
+
+//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:@{
+//                                                                                 @"hell": nil}];
     
     return YES;
 }

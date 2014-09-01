@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) WGVideo *video;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *overviewLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 
 
