@@ -45,7 +45,7 @@ static NSMutableArray *allVideos;
     video.orderNumber  = [attributes objectForKey:@"order_number"];
     video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = @"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    video.videoURL     = @"http://localhost:8000/video.mp4";//@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
     return video;
 }
 
