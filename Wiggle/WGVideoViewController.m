@@ -122,6 +122,7 @@ const NSInteger kWGVideoInfoRow = 0;
     MPMoviePlayerViewController *vc = [[MPMoviePlayerViewController alloc]  initWithContentURL:contentURL];
     
     NSLog(@"playing %@", contentURL);
+    [self.video videoWasWatched];
     [self presentMoviePlayerViewControllerAnimated:vc];
 }
 

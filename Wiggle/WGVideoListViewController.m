@@ -22,6 +22,12 @@
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideosLoadedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideoWasWatchedNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideoDownloadDidStartNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideoDownloadDidCancelNotification object:nil];
+
+    
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [UIColor clearColor];

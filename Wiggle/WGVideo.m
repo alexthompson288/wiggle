@@ -15,6 +15,11 @@ NSString * const WGVideoDownloadDidProgressNotification     = @"WGVideoDownloadD
 NSString * const WGVideoDownloadDidFinishNotification       = @"WGVideoDownloadDidFinishNotification";
 NSString * const WGVideoDownloadDidFailNotification         = @"WGVideoDownloadDidFailNotification";
 NSString * const WGVideoDownloadDidCancelNotification       = @"WGVideoDownloadDidCancelNotification";
+NSString * const WGVideoWasWatchedNotification              = @"WGVideoWasWatchedNotification";
+
+
+NSString * const WGVideoDownloadDidStartNotification = @"WGVideoDownloadDidStartNotification";
+
 
 #define kVideoDataPath [kDocumentsDirectory stringByAppendingPathComponent:@"videos.plist"]
 
@@ -85,6 +90,13 @@ static NSMutableArray *allCategories;
     return attribs;
 }
 
+- (void)videoWasWatched
+{
+    self.watched = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoWasWatchedNotification object:self];
+
+}
+
 - (void)deleteDownload
 {
     
@@ -114,7 +126,7 @@ static NSMutableArray *allCategories;
     NSURLRequest *request    = [NSURLRequest requestWithURL:URL];
     self.downloadOperation   = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     __weak WGVideo* weakSelf = self;
-
+    
     
     [self.downloadOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidProgressNotification
@@ -150,6 +162,8 @@ static NSMutableArray *allCategories;
     }];
     
     self.isDownloading = YES;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WGVideoDownloadDidStartNotification object:weakSelf];
     [downloadOperation start];
 
 }
@@ -177,7 +191,6 @@ static NSMutableArray *allCategories;
     allVideos = [NSMutableArray new];
     
     NSLog(@"Loading videos...");
-    return;
     NSArray *cachedVideos = [NSArray arrayWithContentsOfURL:documentURLFromFilename(@"videos.plist")];
     if (!cachedVideos){
         NSLog(@"Couldn't retrieve cached videos");
