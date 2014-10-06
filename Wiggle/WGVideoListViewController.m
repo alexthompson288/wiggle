@@ -24,6 +24,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:WGVideosLoadedNotification object:nil];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = [UIColor clearColor];
+
 }
 
 #pragma mark - Table View
@@ -36,7 +38,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 32;
+    return 44;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -46,12 +48,12 @@
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"section-background"]];
     
     [headerView addSubview:backgroundImage];
-    backgroundImage.top = 8;
+    backgroundImage.top = 13;
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:headerView.frame];
     titleLabel.text     = ((WGCategory *)[WGVideo allCategories][section]).title;
     titleLabel.font     = [UIFont fontWithName:@"HelveticaNeue" size:12];
     titleLabel.left     = 12;
-    titleLabel.top      = 4;
+    titleLabel.top      = 9;
     [headerView addSubview:titleLabel];
     return headerView;
 }
@@ -116,7 +118,8 @@
         _video = video;
         self.titleLabel.text             = self.video.title;
         self.overviewLabel.text          = self.video.overview;
-//        self.watchedIndicatorView.hidden = !self.video.watched;
+        self.watchedIndicatorView.hidden = !self.video.watched;
+        self.availableOfflineIndicatorView.hidden = !self.video.offlineURL;
         [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
     }
 }

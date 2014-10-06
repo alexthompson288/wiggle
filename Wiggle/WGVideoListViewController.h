@@ -16,6 +16,8 @@
 @interface WGVideoCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *watchedIndicatorView;
+@property (weak, nonatomic) IBOutlet UIView *availableOfflineIndicatorView;
+
 @property (nonatomic, strong) WGVideo *video;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *overviewLabel;

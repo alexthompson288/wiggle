@@ -208,6 +208,8 @@ static NSMutableArray *allCategories;
                 PFObject *category = video[@"category"];
                 video.categoryId   = category.objectId;
                 video.categoryName = category[@"name"];
+//                video.watched      = YES;
+//                video.offlineURL   = @"http://ssss";
             }
             
             [self populateCategories];
