@@ -17,5 +17,6 @@
     #import "NSString+WGAdditions.h"
     #import "UINavigationController+Rotation.h"
     #import "UIView+Shadow.h"
+    #import "UIView+WGAdditions.h"
     #import "WGConstants.h"
 #endif

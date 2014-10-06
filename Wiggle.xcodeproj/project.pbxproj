@@ -11,6 +11,7 @@
 		C737F7BD19B44A9400C69A8F /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C737F7BC19B44A9400C69A8F /* UIView+Shadow.m */; };
 		C737F7C019B44EC000C69A8F /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */; };
 		C737F7C319B4506100C69A8F /* WGTranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */; };
+		C781607419E2D94D007C3369 /* UIView+WGAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C781607319E2D94D007C3369 /* UIView+WGAdditions.m */; };
 		C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B019A3887100D532C1 /* Foundation.framework */; };
 		C7B754B319A3887100D532C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B219A3887100D532C1 /* CoreGraphics.framework */; };
 		C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B419A3887100D532C1 /* UIKit.framework */; };
@@ -64,6 +65,8 @@
 		C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "../UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		C737F7C119B4506100C69A8F /* WGTranscriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WGTranscriptViewController.h; path = ../WGTranscriptViewController.h; sourceTree = "<group>"; };
 		C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WGTranscriptViewController.m; path = ../WGTranscriptViewController.m; sourceTree = "<group>"; };
+		C781607219E2D94D007C3369 /* UIView+WGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WGAdditions.h"; sourceTree = "<group>"; };
+		C781607319E2D94D007C3369 /* UIView+WGAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WGAdditions.m"; sourceTree = "<group>"; };
 		C7B754AD19A3887100D532C1 /* Wiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B754B019A3887100D532C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C7B754B219A3887100D532C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,6 +220,8 @@
 				C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */,
 				C737F7BB19B44A9400C69A8F /* UIView+Shadow.h */,
 				C737F7BC19B44A9400C69A8F /* UIView+Shadow.m */,
+				C781607219E2D94D007C3369 /* UIView+WGAdditions.h */,
+				C781607319E2D94D007C3369 /* UIView+WGAdditions.m */,
 			);
 			path = Wiggle;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C781607419E2D94D007C3369 /* UIView+WGAdditions.m in Sources */,
 				C7E0D52519A3E63700CB32C4 /* WGConstants.m in Sources */,
 				C737F7C019B44EC000C69A8F /* UINavigationController+Rotation.m in Sources */,
 				C737F7C319B4506100C69A8F /* WGTranscriptViewController.m in Sources */,

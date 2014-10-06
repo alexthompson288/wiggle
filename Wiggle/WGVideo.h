@@ -8,10 +8,23 @@
 
 #import <Parse/Parse.h>
 
+@interface WGCategory : NSObject
+
+@property (nonatomic, readonly, strong) NSString *title;
+@property (nonatomic, readonly, strong) NSMutableArray *objects;
+
+- (id)initWithTitle:(NSString *)title;
+
+@end
+
 @interface WGVideo : PFObject <PFSubclassing>
 
 @property (nonatomic) BOOL isDownloading;
+@property (nonatomic) BOOL watched;
 @property (nonatomic, strong) NSString *offlineURL;
+@property (nonatomic, strong) NSString *categoryId;
+@property (nonatomic, strong) NSString *categoryName;
+
 
 // Parse data
 @property (strong) NSString *title;
@@ -31,7 +44,7 @@
 + (void)bootstrap;
 + (void)fetchFromServer:(PFBooleanResultBlock)block;
 + (NSArray *)allVideos;
-
++ (NSArray *)allCategories;
 @end
 
 extern NSString * const WGVideosLoadedNotification;

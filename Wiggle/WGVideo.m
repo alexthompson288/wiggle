@@ -18,9 +18,17 @@ NSString * const WGVideoDownloadDidCancelNotification       = @"WGVideoDownloadD
 
 #define kVideoDataPath [kDocumentsDirectory stringByAppendingPathComponent:@"videos.plist"]
 
+@interface WGCategory()
+
+- (void)addVideo:(WGVideo *)video;
+
+@end
+
 @interface WGVideo()
 
 @property (nonatomic, strong) AFHTTPRequestOperation *downloadOperation;
+
+- (void)populateCategories;
 
 @end
 
@@ -30,6 +38,7 @@ NSString * const WGVideoDownloadDidCancelNotification       = @"WGVideoDownloadD
 @dynamic title, overview, orderNumber, thumbnailURL, videoURL, transcript;
 
 static NSMutableArray *allVideos;
+static NSMutableArray *allCategories;
 
 + (NSString *)parseClassName {
     return @"Video";
@@ -47,15 +56,13 @@ static NSMutableArray *allVideos;
     video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
     video.videoURL     = [attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    video.categoryName = [attributes objectForKey:@"category_name"];
+    video.categoryId   = [attributes objectForKey:@"category_id"];
     return video;
 }
 
 - (NSDictionary *)getAttributes
 {
-    NSLog(@"---- %@", self.objectId);
-    
-    
-    
     NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithDictionary:@{
              @"id":             self.objectId,
              @"title":          self.title,
@@ -63,7 +70,9 @@ static NSMutableArray *allVideos;
              @"order_number":   self.orderNumber,
              @"transcript":     self.transcript,
              @"thumbnail_url":  self.thumbnailURL,
-             @"video_url":      self.videoURL
+             @"video_url":      self.videoURL,
+             @"category_id":    self.categoryId,
+             @"category_name":  self.categoryName
              }];
     
     for (id key in attribs) {
@@ -163,11 +172,12 @@ static NSMutableArray *allVideos;
 
 + (void)bootstrap
 {
+
     [WGVideo registerSubclass];
     allVideos = [NSMutableArray new];
     
     NSLog(@"Loading videos...");
-    
+    return;
     NSArray *cachedVideos = [NSArray arrayWithContentsOfURL:documentURLFromFilename(@"videos.plist")];
     if (!cachedVideos){
         NSLog(@"Couldn't retrieve cached videos");
@@ -178,11 +188,10 @@ static NSMutableArray *allVideos;
             [allVideos addObject:[WGVideo videoWithAttributes:videoAttributes]];
         }
     }
-    
+    [self populateCategories];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidCancelNotification object:nil];
 }
-
 
 
 + (void)fetchFromServer:(PFBooleanResultBlock)block
@@ -190,15 +199,22 @@ static NSMutableArray *allVideos;
 //    return;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
+    [query includeKey:@"category"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             allVideos = [NSMutableArray arrayWithArray:objects];
             
+            for (WGVideo *video in allVideos){
+                PFObject *category = video[@"category"];
+                video.categoryId   = category.objectId;
+                video.categoryName = category[@"name"];
+            }
+            
+            [self populateCategories];
             NSLog(@"%i videos retrieved from server", allVideos.count);
             
             
             [self saveToDisk];
-//
             [[NSNotificationCenter defaultCenter] postNotificationName:WGVideosLoadedNotification object:nil];
             
             if (block) block(YES, nil);
@@ -215,6 +231,45 @@ static NSMutableArray *allVideos;
 + (NSArray *)allVideos
 {
     return allVideos;
+}
+
++ (NSArray *)allCategories
+{
+    return allCategories;
+}
+
++ (void)populateCategories {
+    NSMutableDictionary *categories = [NSMutableDictionary new];
+    
+    for (WGVideo *video in [self allVideos]){
+        WGCategory *category = categories[video.categoryId];
+        if (!category){
+            category = [[WGCategory alloc] initWithTitle:video.categoryName];
+            categories[video.categoryId] = category;
+        }
+        [category addVideo:video];
+    }
+    NSLog(@"allCategories %i", [allVideos count]);
+    allCategories = [NSMutableArray arrayWithArray:[categories allValues]];
+}
+
+@end
+
+
+
+@implementation WGCategory
+
+- (id)initWithTitle:(NSString *)title {
+    self = [super init];
+    if (self){
+        _title      = title;
+        _objects    = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (void)addVideo:(WGVideo *)video {
+    [_objects addObject:video];
 }
 
 @end

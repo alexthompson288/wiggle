@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8568D6AE-C52A-46AB-96E4-B038D25F2A13</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wiggle</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BCB0B6466332EC3B8246BF15FEE1111E69DE1C45</key>
+		<string>ssh://github.com/alexthompson288/wiggle.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wiggle.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BCB0B6466332EC3B8246BF15FEE1111E69DE1C45</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/alexthompson288/wiggle.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BCB0B6466332EC3B8246BF15FEE1111E69DE1C45</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BCB0B6466332EC3B8246BF15FEE1111E69DE1C45</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Wiggle</string>
+		</dict>
+	</array>
+</dict>
+</plist>

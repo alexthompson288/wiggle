@@ -30,9 +30,36 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    
+    return [[WGVideo allCategories] count];
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 32;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 32)];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"section-background"]];
+    
+    [headerView addSubview:backgroundImage];
+    backgroundImage.top = 8;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:headerView.frame];
+    titleLabel.text     = ((WGCategory *)[WGVideo allCategories][section]).title;
+    titleLabel.font     = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    titleLabel.left     = 12;
+    titleLabel.top      = 4;
+    [headerView addSubview:titleLabel];
+    return headerView;
+}
+
+- (WGVideo *)videoForIndexPath:(NSIndexPath *)indexPath
+{
+    return [(WGCategory *)[WGVideo allCategories][indexPath.section] objects][indexPath.row];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -41,13 +68,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [WGVideo allVideos].count;
+    return [((WGCategory *)[WGVideo allCategories][section]).objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WGVideoCell *cell   = [tableView dequeueReusableCellWithIdentifier:@"VideoCell" forIndexPath:indexPath];
-    WGVideo *video      = [WGVideo allVideos][indexPath.row];
+    WGVideo *video      = [self videoForIndexPath:indexPath];
     
     cell.video = video;
     return cell;
@@ -60,7 +87,7 @@
         NSIndexPath *indexPath                = [self.tableView indexPathForSelectedRow];
         WGVideoViewController *detailVC = (WGVideoViewController *)[segue destinationViewController];
         
-        detailVC.video = [WGVideo allVideos][indexPath.row];
+        detailVC.video = [self videoForIndexPath:indexPath];
     }
 }
 
@@ -72,6 +99,8 @@
 {
     [super awakeFromNib];
     [self.thumbnailImageView makeInsetShadowWithRadius:1 Alpha:0.1];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
 }
 
 - (void)prepareForReuse
@@ -85,10 +114,16 @@
 {
     if (_video != video) {
         _video = video;
-        self.titleLabel.text    = self.video.title;
-        self.overviewLabel.text = self.video.overview;
+        self.titleLabel.text             = self.video.title;
+        self.overviewLabel.text          = self.video.overview;
+//        self.watchedIndicatorView.hidden = !self.video.watched;
         [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
     }
+}
+
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
 }
 
 @end
