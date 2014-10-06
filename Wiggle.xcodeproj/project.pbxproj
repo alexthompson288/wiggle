@@ -12,6 +12,8 @@
 		C737F7C019B44EC000C69A8F /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */; };
 		C737F7C319B4506100C69A8F /* WGTranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */; };
 		C781607419E2D94D007C3369 /* UIView+WGAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C781607319E2D94D007C3369 /* UIView+WGAdditions.m */; };
+		C784674519E31F240047D55D /* WGSpashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C784674419E31F240047D55D /* WGSpashViewController.m */; };
+		C784674819E321D10047D55D /* splash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C784674719E31F4A0047D55D /* splash.mp4 */; };
 		C7B754B119A3887100D532C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B019A3887100D532C1 /* Foundation.framework */; };
 		C7B754B319A3887100D532C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B219A3887100D532C1 /* CoreGraphics.framework */; };
 		C7B754B519A3887100D532C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B754B419A3887100D532C1 /* UIKit.framework */; };
@@ -67,6 +69,9 @@
 		C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WGTranscriptViewController.m; path = ../WGTranscriptViewController.m; sourceTree = "<group>"; };
 		C781607219E2D94D007C3369 /* UIView+WGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WGAdditions.h"; sourceTree = "<group>"; };
 		C781607319E2D94D007C3369 /* UIView+WGAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WGAdditions.m"; sourceTree = "<group>"; };
+		C784674319E31F240047D55D /* WGSpashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGSpashViewController.h; sourceTree = "<group>"; };
+		C784674419E31F240047D55D /* WGSpashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGSpashViewController.m; sourceTree = "<group>"; };
+		C784674719E31F4A0047D55D /* splash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash.mp4; sourceTree = "<group>"; };
 		C7B754AD19A3887100D532C1 /* Wiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B754B019A3887100D532C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C7B754B219A3887100D532C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +155,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C784674619E31F2A0047D55D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C784674719E31F4A0047D55D /* splash.mp4 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C7B754A419A3887100D532C1 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +215,7 @@
 		C7B754B619A3887100D532C1 /* Wiggle */ = {
 			isa = PBXGroup;
 			children = (
+				C784674619E31F2A0047D55D /* Resources */,
 				C7B754FC19A399FF00D532C1 /* Models */,
 				C7B754BF19A3887100D532C1 /* WGAppDelegate.h */,
 				C7B754C019A3887100D532C1 /* WGAppDelegate.m */,
@@ -222,6 +236,8 @@
 				C737F7BC19B44A9400C69A8F /* UIView+Shadow.m */,
 				C781607219E2D94D007C3369 /* UIView+WGAdditions.h */,
 				C781607319E2D94D007C3369 /* UIView+WGAdditions.m */,
+				C784674319E31F240047D55D /* WGSpashViewController.h */,
+				C784674419E31F240047D55D /* WGSpashViewController.m */,
 			);
 			path = Wiggle;
 			sourceTree = "<group>";
@@ -346,6 +362,7 @@
 			files = (
 				C7B754CC19A3887100D532C1 /* Images.xcassets in Resources */,
 				C7B754BB19A3887100D532C1 /* InfoPlist.strings in Resources */,
+				C784674819E321D10047D55D /* splash.mp4 in Resources */,
 				C7B754C419A3887100D532C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +425,7 @@
 				C737F7BD19B44A9400C69A8F /* UIView+Shadow.m in Sources */,
 				C7B754FF19A39A4F00D532C1 /* WGVideo.m in Sources */,
 				C7B754C719A3887100D532C1 /* WGVideoListViewController.m in Sources */,
+				C784674519E31F240047D55D /* WGSpashViewController.m in Sources */,
 				C737F7B919B4337700C69A8F /* WGVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

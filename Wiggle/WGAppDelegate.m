@@ -25,7 +25,21 @@
     return YES;
 }
 
-
+- (UIViewController *)switchToStoryboard:(NSString *)storyboardName
+{
+    UIViewController *initialViewController = nil;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    if (storyboard != nil) {
+        initialViewController = [storyboard instantiateInitialViewController];
+        if (initialViewController != nil) {
+            UIViewController *existingRootViewController = self.window.rootViewController;
+            [existingRootViewController viewWillDisappear:NO];
+            self.window.rootViewController = initialViewController;
+            [existingRootViewController viewDidDisappear:NO];
+        }
+    }
+    return initialViewController;
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
