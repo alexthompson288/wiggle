@@ -60,10 +60,11 @@ static NSMutableArray *allCategories;
     video.orderNumber  = [attributes objectForKey:@"order_number"];
     video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = @"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    video.videoURL     = [attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
     video.categoryName = [attributes objectForKey:@"category_name"];
     video.categoryId   = [attributes objectForKey:@"category_id"];
-    
+    video.categoryOrderNumber   = [attributes objectForKey:@"category_order_number"];
+
     if ([attributes objectForKey:@"watched"]){
         video.watched = [(NSNumber *)attributes[@"watched"] boolValue];
     }
@@ -82,7 +83,9 @@ static NSMutableArray *allCategories;
              @"thumbnail_url":  self.thumbnailURL,
              @"video_url":      self.videoURL,
              @"category_id":    self.categoryId,
-             @"category_name":  self.categoryName
+             @"category_name":  self.categoryName,
+             @"category_order_number":  self.categoryOrderNumber
+
              }];
     
     
@@ -238,6 +241,7 @@ static NSMutableArray *allCategories;
                 PFObject *category = video[@"category"];
                 video.categoryId   = category.objectId;
                 video.categoryName = category[@"name"];
+                video.categoryOrderNumber = category[@"orderNumber"];
 
                 // merge in existing video attributes
                 WGVideo *existingVideo = [self getVideoById:video.objectId];
@@ -281,13 +285,21 @@ static NSMutableArray *allCategories;
     for (WGVideo *video in [self allVideos]){
         WGCategory *category = categories[video.categoryId];
         if (!category){
-            category = [[WGCategory alloc] initWithTitle:video.categoryName];
+            category = [[WGCategory alloc] initWithTitle:video.categoryName andOrderNumber:video.categoryOrderNumber];
             categories[video.categoryId] = category;
         }
         [category addVideo:video];
     }
-    NSLog(@"allCategories %i", [allVideos count]);
-    allCategories = [NSMutableArray arrayWithArray:[categories allValues]];
+
+    
+    allCategories = [NSMutableArray arrayWithArray:[[categories allValues] sortedArrayUsingComparator:^NSComparisonResult(WGCategory *obj1, WGCategory *obj2) {
+
+        return [obj1.orderNumber compare:obj2.orderNumber];
+    }]];
+    
+    for (WGCategory *category in allCategories){
+        [category sort];
+    }
 }
 
 @end
@@ -296,17 +308,24 @@ static NSMutableArray *allCategories;
 
 @implementation WGCategory
 
-- (id)initWithTitle:(NSString *)title {
+- (id)initWithTitle:(NSString *)title andOrderNumber:(NSNumber *)orderNumber {
     self = [super init];
     if (self){
-        _title      = title;
-        _objects    = [NSMutableArray new];
+        _title       = title;
+        _orderNumber = orderNumber;
+        _objects      = [NSMutableArray new];
     }
     return self;
 }
 
 - (void)addVideo:(WGVideo *)video {
     [_objects addObject:video];
+}
+
+- (void)sort {
+    _objects = [[NSMutableArray alloc] initWithArray:[_objects sortedArrayUsingComparator:^NSComparisonResult(WGVideo *obj1, WGVideo *obj2) {
+        return [obj1.orderNumber compare:obj2.orderNumber];
+    }]];
 }
 
 @end

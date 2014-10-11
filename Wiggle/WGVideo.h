@@ -11,10 +11,11 @@
 @interface WGCategory : NSObject
 
 @property (nonatomic, readonly, strong) NSString *title;
+@property (nonatomic, readonly, strong) NSNumber *orderNumber;
 @property (nonatomic, readonly, strong) NSMutableArray *objects;
 
-- (id)initWithTitle:(NSString *)title;
-
+- (id)initWithTitle:(NSString *)title andOrderNumber:(NSNumber *)orderNumber;
+- (void)sort;
 @end
 
 @interface WGVideo : PFObject <PFSubclassing>
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSString *offlineURL;
 @property (nonatomic, strong) NSString *categoryId;
 @property (nonatomic, strong) NSString *categoryName;
+@property (nonatomic, strong) NSNumber *categoryOrderNumber;
 
 
 // Parse data
