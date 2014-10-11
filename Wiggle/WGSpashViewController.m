@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"splash" ofType:@"mp4"]];//[[NSBundle mainBundle] URLForResource:@"splash" withExtension:@"mp4"];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"homepage_park" ofType:@"mp4"]];//[[NSBundle mainBundle] URLForResource:@"splash" withExtension:@"mp4"];
     
     
     player = [[MPMoviePlayerController alloc] initWithContentURL:url];

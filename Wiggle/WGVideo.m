@@ -60,9 +60,14 @@ static NSMutableArray *allCategories;
     video.orderNumber  = [attributes objectForKey:@"order_number"];
     video.offlineURL   = [attributes objectForKey:@"offline_url"];
     video.thumbnailURL = [attributes objectForKey:@"thumbnail_url"];
-    video.videoURL     = [attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    video.videoURL     = @"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";//[attributes objectForKey:@"video_url"]; // @"http://localhost:8000/video.mp4"; //@"http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
     video.categoryName = [attributes objectForKey:@"category_name"];
     video.categoryId   = [attributes objectForKey:@"category_id"];
+    
+    if ([attributes objectForKey:@"watched"]){
+        video.watched = [(NSNumber *)attributes[@"watched"] boolValue];
+    }
+    
     return video;
 }
 
@@ -80,12 +85,14 @@ static NSMutableArray *allCategories;
              @"category_name":  self.categoryName
              }];
     
-    for (id key in attribs) {
-        if (![attribs objectForKey:key]){
-            [attribs removeObjectForKey:key];
-        }
+    
+    if (self.offlineURL){
+        attribs[@"offline_url"] = self.offlineURL;
     }
 
+    if (self.watched){
+        attribs[@"watched"] = [NSNumber numberWithBool:self.watched];
+    }
     
     return attribs;
 }
@@ -204,12 +211,13 @@ static NSMutableArray *allCategories;
     [self populateCategories];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoDownloadDidCancelNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoWasWatchedNotification object:nil];
 }
 
 
 + (void)fetchFromServer:(PFBooleanResultBlock)block
 {
-//    return;
+    return;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query includeKey:@"category"];
