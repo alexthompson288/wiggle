@@ -228,12 +228,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="Olq-5c-qcF">
-                                            <rect key="frame" x="10" y="10" width="109" height="87"/>
+                                            <rect key="frame" x="10" y="10" width="109" height="73"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" red="0.91626381219999997" green="0.91626381219999997" blue="0.91626381219999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GuG-6y-bRh">
-                                            <rect key="frame" x="10" y="10" width="109" height="87"/>
+                                            <rect key="frame" x="10" y="10" width="109" height="73"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hjgkjh askjhdg hkjasgd khagsd kjahsgd " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dVN-xc-nlA">
@@ -261,11 +261,11 @@
                                             </subviews>
                                         </view>
                                         <view contentMode="scaleToFill" id="0Fp-hk-wWM">
-                                            <rect key="frame" x="10" y="10" width="109" height="87"/>
+                                            <rect key="frame" x="10" y="10" width="109" height="73"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-tick" id="EaY-5x-K1I">
-                                                    <rect key="frame" x="79" y="43" width="30" height="44"/>
+                                                    <rect key="frame" x="79" y="40" width="30" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>

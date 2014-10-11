@@ -43,6 +43,7 @@
 
 + (void)bootstrap;
 + (void)fetchFromServer:(PFBooleanResultBlock)block;
++ (WGVideo *)getVideoById:(NSString *)objectId;
 + (NSArray *)allVideos;
 + (NSArray *)allCategories;
 @end

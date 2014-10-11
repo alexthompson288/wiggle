@@ -214,29 +214,43 @@ static NSMutableArray *allCategories;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:WGVideoWasWatchedNotification object:nil];
 }
 
++ (WGVideo *)getVideoById:(NSString *)objectId
+{
+    WGVideo *ret;
+    for (WGVideo *vid in allVideos){
+        if ([vid.objectId isEqualToString:objectId]){
+            ret = vid;
+            break;
+        }
+    }
+    return ret;
+}
 
 + (void)fetchFromServer:(PFBooleanResultBlock)block
 {
-    return;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query includeKey:@"category"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            allVideos = [NSMutableArray arrayWithArray:objects];
             
-            for (WGVideo *video in allVideos){
+            for (WGVideo *video in objects){
                 PFObject *category = video[@"category"];
                 video.categoryId   = category.objectId;
                 video.categoryName = category[@"name"];
-//                video.watched      = YES;
-//                video.offlineURL   = @"http://ssss";
+
+                // merge in existing video attributes
+                WGVideo *existingVideo = [self getVideoById:video.objectId];
+                if (existingVideo){
+                    video.watched    = existingVideo.watched;
+                    video.offlineURL = existingVideo.offlineURL;
+                }
             }
             
-            [self populateCategories];
-            NSLog(@"%i videos retrieved from server", allVideos.count);
+            NSLog(@"%i videos retrieved from server", objects.count);
             
-            
+            allVideos = [NSMutableArray arrayWithArray:objects];
+            [self populateCategories];            
             [self saveToDisk];
             [[NSNotificationCenter defaultCenter] postNotificationName:WGVideosLoadedNotification object:nil];
             
