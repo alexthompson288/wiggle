@@ -153,11 +153,64 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fe3-TB-a5t">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="189" id="fe3-TB-a5t">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fe3-TB-a5t" id="Dhl-FL-w1Z">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PjN-i8-omg">
+                                                    <rect key="frame" x="0.0" y="26" width="320" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cnb-PE-q9b">
+                                                        <size key="itemSize" width="167" height="121"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RelatedVideoCell" id="c35-Gd-Q2Y" customClass="RelatedVideoCell">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="167" height="121"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="CFp-j1-zfJ">
+                                                                        <rect key="frame" x="8" y="8" width="150" height="84"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k9E-oW-G6j">
+                                                                        <rect key="frame" x="8" y="99" width="151" height="18"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="CFp-j1-zfJ" id="YbA-id-kwR"/>
+                                                                <outlet property="titleLabel" destination="k9E-oW-G6j" id="bBS-57-njv"/>
+                                                                <segue destination="5Qe-s5-Dhu" kind="push" identifier="showRelated" id="Vca-Vs-vgY"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="5Qe-s5-Dhu" id="4md-ph-869"/>
+                                                        <outlet property="delegate" destination="5Qe-s5-Dhu" id="bRp-cR-egE"/>
+                                                    </connections>
+                                                </collectionView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Videos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fMP-RW-Cfm">
+                                                    <rect key="frame" x="8" y="10" width="182" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -173,6 +226,7 @@
                         <outlet property="availableOfflineSwitch" destination="pYp-cV-4dx" id="WYB-90-spp"/>
                         <outlet property="downloadProgressView" destination="H9d-mg-AaO" id="IW7-6P-VLE"/>
                         <outlet property="downloadStatusLabel" destination="VPT-Go-VSP" id="N8x-te-5c0"/>
+                        <outlet property="relatedVideosCollectionView" destination="PjN-i8-omg" id="96k-pY-Iun"/>
                         <outlet property="thumbnailImageView" destination="yh9-Pe-hJP" id="d7z-t0-Hen"/>
                         <outlet property="transcriptButton" destination="2Rx-Bn-XXE" id="v2G-3s-0Xk"/>
                         <outlet property="videoOverviewLabel" destination="HwI-Au-OOo" id="wVk-IV-gvX"/>
@@ -180,7 +234,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckP-u1-ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="72"/>
+            <point key="canvasLocation" x="896" y="71"/>
         </scene>
         <!--Transcript-->
         <scene sceneID="ZpF-FJ-xsW">
@@ -400,4 +454,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="iv8-oO-RGv"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ const NSInteger kWGVideoInfoRow = 0;
 @property (weak, nonatomic) IBOutlet UILabel *downloadStatusLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
 @property (weak, nonatomic) IBOutlet UIButton *transcriptButton;
+@property (weak, nonatomic) IBOutlet UICollectionView *relatedVideosCollectionView;
 
 - (void)configureView;
 
@@ -138,7 +139,49 @@ const NSInteger kWGVideoInfoRow = 0;
         WGTranscriptViewController *detailVC = (WGTranscriptViewController *)([(UINavigationController *)[segue destinationViewController] viewControllers][0]);
         detailVC.video = self.video;
     }
+    else if ([[segue identifier] isEqualToString:@"showRelated"]) {
+        
+        
+        NSIndexPath *indexPath                = [self.relatedVideosCollectionView indexPathsForSelectedItems][0];
+        WGVideoViewController *detailVC = (WGVideoViewController *)[segue destinationViewController];
+//
+        detailVC.video = [self.video relatedVideos][indexPath.row];
+    }
+    
 }
 
+#pragma mark -
+#pragma mark UICollectionViewDataSource
 
+-(NSInteger)numberOfSectionsInCollectionView:
+(UICollectionView *)collectionView
+{
+    return 1;
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView
+    numberOfItemsInSection:(NSInteger)section
+{
+    return [self.video relatedVideos].count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    RelatedVideoCell *cell = [collectionView
+                                    dequeueReusableCellWithReuseIdentifier:@"RelatedVideoCell"
+                                    forIndexPath:indexPath];
+    
+
+    WGVideo *video = [self.video relatedVideos][indexPath.row];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:video.thumbnailURL]];
+    cell.titleLabel.text = video.title;
+
+    
+    return cell;
+}
+
+@end
+
+
+@implementation RelatedVideoCell
 @end

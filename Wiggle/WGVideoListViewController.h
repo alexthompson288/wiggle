@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WGVideo.h"
 
-@interface WGVideoListViewController : UITableViewController
+@interface WGVideoListViewController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 

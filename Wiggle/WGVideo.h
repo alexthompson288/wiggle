@@ -40,6 +40,8 @@
 - (void)download;
 - (void)deleteDownload;
 - (void)videoWasWatched;
+- (NSArray *)relatedVideos;
+
 + (NSString *)parseClassName;
 + (instancetype)videoWithAttributes:(NSDictionary *) attributes;
 

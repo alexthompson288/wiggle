@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "WGVideo.h"
 
+#import <UIKit/UIKit.h>
+
+@interface RelatedVideoCell : UICollectionViewCell
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end
+
+
 @interface WGVideoViewController : UITableViewController
 
 @property (strong, nonatomic) WGVideo *video;

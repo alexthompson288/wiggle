@@ -178,6 +178,10 @@ static NSMutableArray *allCategories;
 
 }
 
+- (NSArray *)relatedVideos {
+    return [WGVideo allVideos];
+}
+
 + (void)saveToDisk
 {
     NSMutableArray *data = [NSMutableArray new];
