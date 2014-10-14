@@ -64,6 +64,7 @@ static NSMutableArray *allCategories;
     video.categoryName = [attributes objectForKey:@"category_name"];
     video.categoryId   = [attributes objectForKey:@"category_id"];
     video.categoryOrderNumber   = [attributes objectForKey:@"category_order_number"];
+    video.episodeId   = [attributes objectForKey:@"episode_id"];
 
     if ([attributes objectForKey:@"watched"]){
         video.watched = [(NSNumber *)attributes[@"watched"] boolValue];
@@ -83,9 +84,9 @@ static NSMutableArray *allCategories;
              @"thumbnail_url":  self.thumbnailURL,
              @"video_url":      self.videoURL,
              @"category_id":    self.categoryId,
+             @"episode_id":    self.episodeId,
              @"category_name":  self.categoryName,
              @"category_order_number":  self.categoryOrderNumber
-
              }];
     
     
@@ -179,7 +180,15 @@ static NSMutableArray *allCategories;
 }
 
 - (NSArray *)relatedVideos {
-    return [WGVideo allVideos];
+    NSMutableArray *related = [NSMutableArray new];
+    
+    for (WGVideo *video in [WGVideo allVideos]){
+        if ([video.episodeId isEqualToString:self.episodeId] && ![video isEqual:self]){
+            [related addObject:video];
+        }
+    }
+    
+    return related;
 }
 
 + (void)saveToDisk
@@ -238,6 +247,8 @@ static NSMutableArray *allCategories;
     NSLog(@"Fetching videos from server...");
     PFQuery *query = [PFQuery queryWithClassName:[WGVideo parseClassName]];
     [query includeKey:@"category"];
+    [query includeKey:@"episode"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
@@ -247,6 +258,10 @@ static NSMutableArray *allCategories;
                 video.categoryName = category[@"name"];
                 video.categoryOrderNumber = category[@"orderNumber"];
 
+                PFObject *episode  = video[@"episode"];
+                video.episodeId    = episode.objectId;
+                
+                
                 // merge in existing video attributes
                 WGVideo *existingVideo = [self getVideoById:video.objectId];
                 if (existingVideo){

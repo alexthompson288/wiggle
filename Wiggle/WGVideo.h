@@ -23,6 +23,7 @@
 @property (nonatomic) BOOL isDownloading;
 @property (nonatomic) BOOL watched;
 @property (nonatomic, strong) NSString *offlineURL;
+@property (nonatomic, strong) NSString *episodeId;
 @property (nonatomic, strong) NSString *categoryId;
 @property (nonatomic, strong) NSString *categoryName;
 @property (nonatomic, strong) NSNumber *categoryOrderNumber;
