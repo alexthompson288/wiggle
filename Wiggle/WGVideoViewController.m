@@ -17,6 +17,7 @@ const NSInteger kWGVideoInfoRow = 0;
 @property (weak, nonatomic) IBOutlet UISwitch *availableOfflineSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *downloadStatusLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
+@property (weak, nonatomic) IBOutlet UIButton *transcriptButton;
 
 - (void)configureView;
 
@@ -30,6 +31,10 @@ const NSInteger kWGVideoInfoRow = 0;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.thumbnailImageView makeInsetShadowWithRadius:1 Alpha:0.1];
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.transcriptButton.layer.cornerRadius = 3.0;
+    self.transcriptButton.layer.borderColor = [[UIColor darkTextColor] CGColor];
+    self.transcriptButton.layer.borderWidth = 1;
     [self configureView];
 }
 
@@ -130,8 +135,7 @@ const NSInteger kWGVideoInfoRow = 0;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showTranscript"]) {
-        WGTranscriptViewController *detailVC = (WGTranscriptViewController *)[segue destinationViewController];
-        
+        WGTranscriptViewController *detailVC = (WGTranscriptViewController *)([(UINavigationController *)[segue destinationViewController] viewControllers][0]);
         detailVC.video = self.video;
     }
 }

@@ -171,6 +171,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C76E126E19ED98C30045455B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7B754C519A3887100D532C1 /* WGVideoListViewController.h */,
+				C7B754C619A3887100D532C1 /* WGVideoListViewController.m */,
+				C737F7C119B4506100C69A8F /* WGTranscriptViewController.h */,
+				C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */,
+				C737F7B719B4337700C69A8F /* WGVideoViewController.h */,
+				C737F7B819B4337700C69A8F /* WGVideoViewController.m */,
+				C784674319E31F240047D55D /* WGSpashViewController.h */,
+				C784674419E31F240047D55D /* WGSpashViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C76E126F19ED98E70045455B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0D52719A3FB9F00CB32C4 /* NSString+WGAdditions.h */,
+				C7E0D52819A3FB9F00CB32C4 /* NSString+WGAdditions.m */,
+				C737F7BE19B44EC000C69A8F /* UINavigationController+Rotation.h */,
+				C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */,
+				C737F7BB19B44A9400C69A8F /* UIView+Shadow.h */,
+				C737F7BC19B44A9400C69A8F /* UIView+Shadow.m */,
+				C781607219E2D94D007C3369 /* UIView+WGAdditions.h */,
+				C781607319E2D94D007C3369 /* UIView+WGAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		C784674619E31F2A0047D55D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +212,7 @@
 		C7B754A419A3887100D532C1 = {
 			isa = PBXGroup;
 			children = (
-				C7B754B619A3887100D532C1 /* Wiggle */,
+				C7B754B619A3887100D532C1 /* Perfect English */,
 				C7B754D819A3887100D532C1 /* WiggleTests */,
 				C7B754AF19A3887100D532C1 /* Frameworks */,
 				C7B754AE19A3887100D532C1 /* Products */,
@@ -230,33 +260,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C7B754B619A3887100D532C1 /* Wiggle */ = {
+		C7B754B619A3887100D532C1 /* Perfect English */ = {
 			isa = PBXGroup;
 			children = (
-				C784674619E31F2A0047D55D /* Resources */,
 				C7B754FC19A399FF00D532C1 /* Models */,
+				C76E126E19ED98C30045455B /* Controllers */,
+				C784674619E31F2A0047D55D /* Resources */,
+				C76E126F19ED98E70045455B /* Categories */,
+				C7B754B719A3887100D532C1 /* Supporting Files */,
+				C73917FE19E9726A002B7582 /* Images.xcassets */,
+				C7B754C219A3887100D532C1 /* Main.storyboard */,
 				C7B754BF19A3887100D532C1 /* WGAppDelegate.h */,
 				C7B754C019A3887100D532C1 /* WGAppDelegate.m */,
-				C7B754C219A3887100D532C1 /* Main.storyboard */,
-				C7B754C519A3887100D532C1 /* WGVideoListViewController.h */,
-				C7B754C619A3887100D532C1 /* WGVideoListViewController.m */,
-				C73917FE19E9726A002B7582 /* Images.xcassets */,
-				C737F7C119B4506100C69A8F /* WGTranscriptViewController.h */,
-				C737F7C219B4506100C69A8F /* WGTranscriptViewController.m */,
-				C737F7B719B4337700C69A8F /* WGVideoViewController.h */,
-				C737F7B819B4337700C69A8F /* WGVideoViewController.m */,
-				C7B754B719A3887100D532C1 /* Supporting Files */,
-				C7E0D52719A3FB9F00CB32C4 /* NSString+WGAdditions.h */,
-				C7E0D52819A3FB9F00CB32C4 /* NSString+WGAdditions.m */,
-				C737F7BE19B44EC000C69A8F /* UINavigationController+Rotation.h */,
-				C737F7BF19B44EC000C69A8F /* UINavigationController+Rotation.m */,
-				C737F7BB19B44A9400C69A8F /* UIView+Shadow.h */,
-				C737F7BC19B44A9400C69A8F /* UIView+Shadow.m */,
-				C781607219E2D94D007C3369 /* UIView+WGAdditions.h */,
-				C781607319E2D94D007C3369 /* UIView+WGAdditions.m */,
-				C784674319E31F240047D55D /* WGSpashViewController.h */,
-				C784674419E31F240047D55D /* WGSpashViewController.m */,
 			);
+			name = "Perfect English";
 			path = Wiggle;
 			sourceTree = "<group>";
 		};
