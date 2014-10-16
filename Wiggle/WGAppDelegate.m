@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [WGVideo bootstrap];
-    [Parse setApplicationId:@"UWHE5ceaJAbNIHywM5M29WSpU5fZVBphUXPc4J6f" clientKey:@"yBDTJWNiZzCzxuOhrmiv6bu3nOEanraYAr3D8Wnm"];
+    [Parse setApplicationId:@"nX6AA7FtDCutN0ExqNvIfB56A8ILmT1pvurv7l95" clientKey:@"qFOkZMygo3IK5RdwcNoQrBgXt5gpwuvFYQWUgC7I"];
     [WGVideo fetchFromServer:nil];
 
 //    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:@{
