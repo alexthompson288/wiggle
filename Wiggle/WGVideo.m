@@ -252,7 +252,26 @@ static NSMutableArray *allCategories;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
+            NSMutableArray *validObjects = [NSMutableArray new];
+            
             for (WGVideo *video in objects){
+                if (video[@"category"] &&
+                    video[@"episode"] &&
+                    video.title &&
+                    video.overview &&
+                    video.transcript &&
+                    video.orderNumber &&
+                    video.thumbnailURL &&
+                    video.videoURL){
+                    [validObjects addObject:video];
+                }
+                else {
+                    NSLog(@"Invalid video discarded: %@", video.objectId);
+                }
+            }
+            
+            
+            for (WGVideo *video in validObjects){
                 PFObject *category = video[@"category"];
                 video.categoryId   = category.objectId;
                 video.categoryName = category[@"name"];
@@ -270,9 +289,9 @@ static NSMutableArray *allCategories;
                 }
             }
             
-            NSLog(@"%i videos retrieved from server", objects.count);
+            NSLog(@"%i videos retrieved from server", validObjects.count);
             
-            allVideos = [NSMutableArray arrayWithArray:objects];
+            allVideos = [NSMutableArray arrayWithArray:validObjects];
             [self populateCategories];            
             [self saveToDisk];
             [[NSNotificationCenter defaultCenter] postNotificationName:WGVideosLoadedNotification object:nil];
