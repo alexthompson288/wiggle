@@ -13,7 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <AFNetworking/UIImageView+AFNetworking.h>
+//    #import <AFNetworking/UIImageView+AFNetworking.h>
+    #import <SDWebImage/UIImageView+WebCache.h>
     #import "NSString+WGAdditions.h"
     #import "UINavigationController+Rotation.h"
     #import "UIView+Shadow.h"

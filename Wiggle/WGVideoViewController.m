@@ -91,7 +91,7 @@ const NSInteger kWGVideoInfoRow = 0;
     if (self.video) {
         self.videoOverviewLabel.text = self.video.overview;
         [self.videoOverviewLabel sizeToFit];
-        [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
+        [self.thumbnailImageView sd_setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
         self.navigationItem.title    = self.video.title;
         self.downloadProgressView.progress = 0.0f;
         if (self.video.isDownloading){

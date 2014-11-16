@@ -127,7 +127,7 @@
         self.overviewLabel.text          = self.video.overview;
         self.watchedIndicatorView.hidden = !self.video.watched;
         self.availableOfflineIndicatorView.hidden = !self.video.offlineURL;
-        [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
+        [self.thumbnailImageView sd_setImageWithURL:[NSURL URLWithString:self.video.thumbnailURL]];
     }
 }
 

@@ -4,6 +4,7 @@
 target "Perfect English" do
   pod 'AFNetworking', '~> 2.3'
   pod 'Facebook-iOS-SDK', '~> 3.17'
+  pod 'SDWebImage', '~>3.6'
 end
 
 target "Perfect EnglishTests" do
